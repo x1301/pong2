@@ -3,10 +3,9 @@ class Tableau1 extends Phaser.Scene{
 
 
     preload(){
-        this.load.image('blue','assets/bleu.jpg');
-        this.load.image('pink','assets/rose.jpg');
+        this.load.image('blue','assets/bluu.jpg');
+        this.load.image('pink','assets/metal pink.jpg');
         this.load.image('circle','assets/cercle.png');
-        //this.load.image('fond','assets/fond a.jpg');
         for(let j=1;j<=51;j++){
             this.load.image('backg'+j,'assets/fond/fram-'+j+'.jpg');
         }
@@ -23,7 +22,6 @@ class Tableau1 extends Phaser.Scene{
 
 
     create(){
-
         this.foond = this.add.sprite(500,250,'backg');
         this.foond.setDisplaySize(50,50)
         this.anims.create({
@@ -33,11 +31,6 @@ class Tableau1 extends Phaser.Scene{
             repeat: -1
         });
         this.foond.play('backgg');
-
-
-
-        //this.foond =this.add.image(500,250,'fond');
-        //this.foond.setDisplaySize(1000,550)
 
         this.hauteur = 500
         this.largeur = 1000
