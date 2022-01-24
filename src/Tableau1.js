@@ -1,7 +1,6 @@
 
 class Tableau1 extends Phaser.Scene{
 
-
     preload(){
         this.load.image('blue','assets/bluu.jpg');
         this.load.image('pink','assets/metal pink.jpg');
@@ -9,6 +8,7 @@ class Tableau1 extends Phaser.Scene{
         for(let j=1;j<=51;j++){
             this.load.image('backg'+j,'assets/fond/fram-'+j+'.jpg');
         }
+        this.load.image('purple','assets/purplelight.png')
     }
 
     getFrames(prefix,length){
@@ -18,8 +18,6 @@ class Tableau1 extends Phaser.Scene{
         }
         return frames;
     }
-
-
 
     create(){
         this.foond = this.add.sprite(500,250,'backg');
@@ -45,6 +43,18 @@ class Tableau1 extends Phaser.Scene{
         this.balle.setDisplaySize(20, 20)
         this.balle.body.setBounce(1,1);
         this.balle.body.setAllowGravity(false)
+
+        let particles2 = this.add.particles('purple');
+        let particle=particles2.createEmitter({
+            alpha: { start: 1, end: 0 },
+            scale: { start: 0.4, end: 0.1},
+            //tint: { start: 0xff945e, end: 0xff945e },
+            blendMode: 'ADD',
+            frequency: 10,
+            x: this.balle.x,
+            y: this.balle.y
+        });
+        particle.startFollow(this.balle)
 
         this.haut = this.physics.add.sprite(0, 0, 'blue').setOrigin(0, 0)
         this.haut.setDisplaySize(this.largeur, 20)
