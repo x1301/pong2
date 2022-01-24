@@ -3,7 +3,8 @@ body{
     font-size: 12px;
     background-color: #000000;
     background-image: url(https://wallpaperaccess.com/full/425080.jpg);
-    background-size: 1500px;
+    background-position-y: 60cm;
+    background-position-x: 91.5cm;
     text-align: center;
 }
 a{
