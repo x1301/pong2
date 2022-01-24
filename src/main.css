@@ -6,6 +6,7 @@ body{
     background-position-y: 60cm;
     background-position-x: 91.5cm;
     text-align: center;
+    overflow: hidden;
 }
 a{
     color: #808080;
