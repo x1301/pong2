@@ -144,23 +144,6 @@ class Tableau1 extends Phaser.Scene{
         }
         this.player1.y += this.player1Speed
         this.player2.y += this.player2Speed
-
-        if(this.player1.y>=380){
-            this.player1Speed = 0
-            this.player1.y = 380
-        }
-        if(this.player2.y>=380){
-            this.player2Speed = 0
-            this.player2.y = 380
-        }
-        if(this.player1.y<=20){
-            this.player1Speed = 0
-            this.player1.y = 20
-        }
-        if(this.player2.y<=20){
-            this.player2Speed = 0
-            this.player2.y = 20
-        }
     }
 
     initKeyboard(){
