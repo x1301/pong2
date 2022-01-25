@@ -86,12 +86,6 @@ class Tableau1 extends Phaser.Scene{
 
         this.balle.setMaxVelocity(this.maxspeed,this.maxspeed)
 
-        this.physics.add.collider(this.haut, this.player1)
-        this.physics.add.collider(this.bas, this.player1)
-
-        this.physics.add.collider(this.haut, this.player2)
-        this.physics.add.collider(this.bas, this.player2)
-
         this.player1Speed = 0
         this.player2Speed = 0
 
@@ -144,6 +138,19 @@ class Tableau1 extends Phaser.Scene{
         }
         this.player1.y += this.player1Speed
         this.player2.y += this.player2Speed
+
+        if(this.player1.y<=70){
+            this.player1.y=70
+        }
+        if(this.player1.y>=430){
+            this.player1.y=430
+        }
+        if(this.player2.y<=70){
+            this.player2.y=70
+        }
+        if(this.player2.y>=430){
+            this.player2.y=430
+        }
     }
 
     initKeyboard(){
