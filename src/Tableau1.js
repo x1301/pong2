@@ -9,6 +9,8 @@ class Tableau1 extends Phaser.Scene{
             this.load.image('backg'+j,'assets/fond/fram-'+j+'.jpg');
         }
         this.load.image('bp','assets/turquoiselight.png')
+        this.load.image('pp','assets/pinklight.png')
+        this.load.image('bb','assets/whitelight.png')
     }
 
     getFrames(prefix,length){
@@ -36,22 +38,22 @@ class Tableau1 extends Phaser.Scene{
         while(this.speedX===0){
             this.speedX = 500*Phaser.Math.Between(-1,1)
         }
-        this.speedY = Phaser.Math.Between(-500, 500)
-        this.maxspeed = 500
+        this.speedY = Phaser.Math.Between(-750, 750)
+        this.maxspeed = 750
 
         this.balle = this.physics.add.sprite(this.largeur/2, this.hauteur/2, 'circle')
         this.balle.setDisplaySize(20, 20)
         this.balle.body.setBounce(1,1);
         this.balle.body.setAllowGravity(false)
 
-        let particles2 = this.add.particles('bp');
-        let particle=particles2.createEmitter({
+        let particles = this.add.particles('bb');
+        let particle=particles.createEmitter({
             alpha: { start: 1, end: 0 },
             scale: { start: 0.25, end: 0.1},
-            //tint: { start: 0xff945e, end: 0xff945e },
             frequency: 1,
             x: this.balle.x,
-            y: this.balle.y
+            y: this.balle.y,
+            blendMode: 'ADD'
         });
         particle.startFollow(this.balle)
 
@@ -66,11 +68,26 @@ class Tableau1 extends Phaser.Scene{
         this.player1 = this.physics.add.sprite(50, 360, 'blue')
         this.player1.setDisplaySize(20, 100)
         this.player1.body.setAllowGravity(false)
+
+        let particles1 = this.add.particles('bp');
+        let particle1 = particles1.createEmitter({
+            scale: { start: 0.15, end: 0 },
+            frequency: 1,
+        });
+        particle1.startFollow(this.player1);
+
         this.player2 = this.physics.add.sprite(920, 360, 'pink')
         this.player2.setDisplaySize(20, 100)
         this.player2.body.setAllowGravity(false)
         this.player1.setImmovable(true)
         this.player2.setImmovable(true)
+
+        let particles2 = this.add.particles('pp');
+        let particle2 = particles2.createEmitter({
+            scale: { start: 0.15, end: 0 },
+            frequency: 1,
+        });
+        particle2.startFollow(this.player2);
 
         let me = this;
         this.physics.add.collider(this.player1, this.balle,function(){
@@ -102,9 +119,9 @@ class Tableau1 extends Phaser.Scene{
         let positionRelativePlayers = (this.balle.y - players.y);
 
         positionRelativePlayers= (positionRelativePlayers / hauteurPlayers)
-        positionRelativePlayers = positionRelativePlayers*2-1;
+        positionRelativePlayers = positionRelativePlayers*5-1;
 
-        this.balle.setVelocityY(this.balle.body.velocity.y + positionRelativePlayers * 50);
+        this.balle.setVelocityY(this.balle.body.velocity.y + positionRelativePlayers * 100);
 
     }
 
