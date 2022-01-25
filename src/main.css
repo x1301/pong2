@@ -3,8 +3,8 @@ body{
     font-size: 12px;
     background-color: #000000;
     background-image: url(https://wallpaperaccess.com/full/425080.jpg);
-    background-position-y: 60cm;
-    background-position-x: 91.5cm;
+    background-position: center;
+    background-size: cover;
     text-align: center;
     overflow: hidden;
 }
@@ -34,8 +34,8 @@ canvas{
 }
 
 #scores{
-    color: #ffffff;
-    font-size : 5vw;
+    color: #7D00FF;
+    font-size : 3vw;
     display: flex;
     justify-content: center;
     position: absolute;
@@ -47,7 +47,7 @@ canvas{
     color:#0f0
 }
 .name{
-    font-size: 3vw;
+    font-size: 2vw;
 }
 
 #scores >* {

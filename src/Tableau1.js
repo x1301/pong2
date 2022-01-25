@@ -8,7 +8,7 @@ class Tableau1 extends Phaser.Scene{
         for(let j=1;j<=51;j++){
             this.load.image('backg'+j,'assets/fond/fram-'+j+'.jpg');
         }
-        this.load.image('purple','assets/purplelight.png')
+        this.load.image('bp','assets/turquoiselight.png')
     }
 
     getFrames(prefix,length){
@@ -20,12 +20,12 @@ class Tableau1 extends Phaser.Scene{
     }
 
     create(){
-        this.foond = this.add.sprite(500,250,'backg');
+        this.foond = this.add.sprite(515,250,'backg');
         this.foond.setDisplaySize(50,50)
         this.anims.create({
             key: 'backgg',
             frames: this.getFrames('backg',51),
-            frameRate: 32,
+            frameRate: 28,
             repeat: -1
         });
         this.foond.play('backgg');
@@ -44,13 +44,12 @@ class Tableau1 extends Phaser.Scene{
         this.balle.body.setBounce(1,1);
         this.balle.body.setAllowGravity(false)
 
-        let particles2 = this.add.particles('purple');
+        let particles2 = this.add.particles('bp');
         let particle=particles2.createEmitter({
             alpha: { start: 1, end: 0 },
-            scale: { start: 0.4, end: 0.1},
+            scale: { start: 0.25, end: 0.1},
             //tint: { start: 0xff945e, end: 0xff945e },
-            blendMode: 'ADD',
-            frequency: 10,
+            frequency: 1,
             x: this.balle.x,
             y: this.balle.y
         });
@@ -89,8 +88,8 @@ class Tableau1 extends Phaser.Scene{
         this.player1Speed = 0
         this.player2Speed = 0
 
-        this.joueurGauche = new Joueur('Robert','joueurGauche')
-        this.joueurDroite = new Joueur('Jean marie','joueurDroite')
+        this.joueurGauche = new Joueur('Player 1','joueurGauche')
+        this.joueurDroite = new Joueur('Player 2','joueurDroite')
 
         this.balleAucentre();
         this.initKeyboard()
