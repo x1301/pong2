@@ -158,7 +158,6 @@ class Tableau1 extends Phaser.Scene{
      }
     }
 
-
     balleAucentre(){
         this.balle.x = this.largeur/2
         this.balle.y = this.hauteur/2
